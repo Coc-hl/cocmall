@@ -1,7 +1,8 @@
 <template>
   <div id="app">
-        <main-tab-bar></main-tab-bar>
         <router-view />
+        <main-tab-bar></main-tab-bar>
+        
   </div>
 </template>
 
@@ -20,4 +21,5 @@ export default {
 
 <style>
   @import url("./assets/css/base.css");
+
 </style>
