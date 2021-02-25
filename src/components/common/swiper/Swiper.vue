@@ -1,11 +1,12 @@
 <template>
+<div>
   <swiper ref="mySwiper" :options="swiperOptions">
     <swiper-slide><slot name="picture1"></slot></swiper-slide>
     <swiper-slide><slot name="picture2"></slot></swiper-slide>
     <swiper-slide><slot name="picture3"></slot></swiper-slide>
     <swiper-slide><slot name="picture4"></slot></swiper-slide>
     <div class="swiper-pagination" slot="pagination"></div>
-  </swiper>
+  </swiper></div>
 </template>
 
 <script>

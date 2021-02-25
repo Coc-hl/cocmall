@@ -20,7 +20,10 @@
                 </a></template>
 
         </myswiper>
-        
+        <recommend-view :recommends="recommends"></recommend-view>
+        <feature-view></feature-view>
+        <tab-control :titles="['流行','新款','精选']"></tab-control>
+
     </div>
 </template>
 
@@ -30,25 +33,39 @@
 import NavBar from '../../components/common/navbar/NavBar.vue'
 import {getHomeMultidata} from '../../network/home'
 import myswiper from '../../components/common/swiper/Swiper'
+import RecommendView from './childComs/RecommendView.vue'
+import FeatureView from './childComs/FeatureView.vue'
+ 
+import TabControl from '../../components/content/tabControl/TabControl.vue'
+
+
 export default {
     name:"Home",
     components:{
         NavBar,
-        myswiper
+        myswiper,
+        RecommendView,
+        FeatureView,
+        TabControl
     },
     data(){
         return{
             banner:[],
             recommends:[],
-            keywords:[],
-            dkeywords:[]
+            // keywords:[],
+            // dkeywords:[]
+            goods:{
+                'pop':{page:0,list:[]},
+                'news':{page:0,list:[]},
+                'sell':{page:0,list:[]}
+            }
         }
     },
     created(){
         getHomeMultidata().then(res=>{
             console.log(res)
             this.banner = res.data.banner.list;
-            this.recommends = res.data.recommend;
+            this.recommends = res.data.recommend.list;
         })
     }
 }

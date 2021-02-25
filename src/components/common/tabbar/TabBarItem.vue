@@ -26,7 +26,6 @@ export default {
   name: "TabBarItem",
   data(){
     return{
-      active:false
     }
   },
   props: {
@@ -35,7 +34,6 @@ export default {
   methods:{
     itemClick(){
       this.$router.replace(this.path).catch(err=>err)
-      this.active = true
     }
   }
 };
@@ -67,7 +65,5 @@ export default {
   height: 49px;
 }
 
-.active{
-  background-color: pink;
-}
+
 </style>
